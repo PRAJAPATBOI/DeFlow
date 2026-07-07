@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+  body { font-feature-settings: 'cv11', 'ss01'; }
+  h1, h2, h3 { font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif; letter-spacing: -0.02em; }
+  :focus-visible { outline: 2px solid #6366f1; outline-offset: 2px; }
+  input[type='number']::-webkit-inner-spin-button { opacity: 0.4; }
+}
+
+@layer components {
+  .input {
+    @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm
+      placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20
+      disabled:bg-slate-100 disabled:text-slate-500;
+  }
+  .th { @apply px-4 py-2.5 text-left text-[11px] font-semibold uppercase tracking-wider text-slate-500; }
+  .td { @apply px-4 py-3 text-sm text-slate-700; }
+  .num { font-variant-numeric: tabular-nums; }
+  .scroll-thin { scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+}
+
+@keyframes fade-up { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes pop { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: none; } }
+.animate-fade-up { animation: fade-up 0.25s ease-out both; }
+.animate-pop { animation: pop 0.16s ease-out both; }
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; }
+  .print-plain { box-shadow: none !important; border: 0 !important; }
+}
