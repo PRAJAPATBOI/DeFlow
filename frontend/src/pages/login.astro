@@ -1,0 +1,7 @@
+---
+import Base from '../layouts/Base.astro';
+import { Login as View } from '../views/Auth.jsx';
+---
+<Base title="Sign in">
+  <View client:only="react" />
+</Base>

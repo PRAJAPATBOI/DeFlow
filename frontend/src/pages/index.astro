@@ -1,0 +1,7 @@
+---
+import Base from '../layouts/Base.astro';
+import View from '../views/Dashboard.jsx';
+---
+<Base title="Dashboard">
+  <View client:only="react" />
+</Base>
