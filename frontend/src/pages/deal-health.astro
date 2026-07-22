@@ -1,0 +1,7 @@
+---
+import Base from '../layouts/Base.astro';
+import { DealHealth as View } from '../views/Reports.jsx';
+---
+<Base title="Deal health">
+  <View client:only="react" />
+</Base>
