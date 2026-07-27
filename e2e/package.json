@@ -1,0 +1,12 @@
+{
+  "name": "dealflow360-e2e",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "smoke": "node smoke.mjs",
+    "flow": "node flow.mjs"
+  },
+  "dependencies": {
+    "puppeteer-core": "^24.0.0"
+  }
+}
