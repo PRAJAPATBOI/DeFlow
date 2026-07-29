@@ -1,0 +1,10 @@
+**/node_modules
+**/.venv
+**/dist
+**/.astro
+**/__pycache__
+**/*.db
+**/.env
+.git
+e2e
+docs

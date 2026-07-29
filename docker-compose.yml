@@ -1,0 +1,31 @@
+# docker compose up --build   ->  http://localhost:8000
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: dealflow
+      POSTGRES_PASSWORD: dealflow
+      POSTGRES_DB: dealflow360
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dealflow -d dealflow360"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ENVIRONMENT: production
+      SECRET_KEY: ${SECRET_KEY:?set SECRET_KEY in your shell or a .env file next to this compose file}
+      DATABASE_URL: postgresql+psycopg2://dealflow:dealflow@db:5432/dealflow360
+      SEED_ON_START: "true"
+    ports:
+      - "8000:8000"
+
+volumes:
+  pgdata:
